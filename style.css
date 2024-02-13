@@ -1,0 +1,159 @@
+body{
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    background: #fae1dd;
+}
+.container{
+    position: relative;
+}
+.valentines{
+    position: relative;
+    top: 50px;
+    cursor: pointer;
+    animation: up 3s linear infinite;
+}
+
+
+
+.card{
+    left:20px;
+    position: relative;
+    width: 250px;
+    height: 180px;
+    background: #fff;
+    border-radius: 2px;
+    display: grid;
+    place-items: center;
+    transition: 1s;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+    cursor: pointer;
+
+    
+}
+
+ 
+.card-front{
+    align-items: center;
+    justify-content: center;
+}
+
+
+.card.is-flipped {
+    transform: rotateY(180deg) scale(4.5);
+    width: 330px;
+
+    
+}
+
+.card-back .back-content{
+    margin-top:5px;
+    margin-left:5px;
+    font-size: 3.2px;
+    text-align:justify;
+    line-height: 5px;
+    margin-right:5px;
+}
+
+
+.card-back{
+    transform: rotateY(180deg);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid #003049;
+    border-style: dashed;
+    background: #fff;
+    place-items: center;
+    backface-visibility: hidden;
+
+  
+}
+
+.card::before{
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    border: 2px solid #003049;
+    border-style: dashed;
+}
+
+.card .text{
+    font-family: 'Brush Script MT', cursive;
+    font-size: 28px;
+    text-align: center;
+    line-height: 30px;
+    color: #003049;
+    margin-top: 2px;
+}
+
+
+
+
+@keyframes up{
+    0%, 100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-30px);
+    }
+}
+
+.valentines::before{
+    content: '';
+    position: absolute;
+    width: 330px;
+    height: 25px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, .3);
+    top: 265px;
+    left: -15px;
+    animation: scale 3s linear infinite;
+}
+
+.card .heart{
+    position: relative;
+    width: 25px;
+    height: 25px;
+    background: rgb(175, 27, 238);
+    top:10px;
+    bottom: -1px;
+    left: 30px;
+    transform: rotate(45deg);
+    border-radius: 50% 0 0 50%;
+}
+.card .heart::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(175, 27, 238);
+    border-radius: 0 50% 50% 0;
+    right: 0;
+    transform: rotate(-90deg);
+    transform-origin: top;
+}
+.card .heart::after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(175, 27, 238);
+    right: -12.5px;
+}
+@keyframes scale{
+    0%, 100%{
+        transform: scaleX(1);
+    }
+    50%{
+        transform: scaleX(.85);
+    }
+}
